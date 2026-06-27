@@ -133,7 +133,7 @@ def main():
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("map", map_command))
     app.add_handler(CommandHandler("shiz", shiz_command))
-    app.add_handler(CommandHandler("praim", prime_command))
+    app.add_handler(CommandHandler("prime", prime_command))
     app.run_polling()
 
 if __name__ == "__main__":
