@@ -133,7 +133,7 @@ async def prime_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
     app = Application.builder().token(TOKEN).build()
-    app.add_handler(CommandHandler("карта", map_command))
+    app.add_handler(CommandHandler("map", map_command))
     app.add_handler(CommandHandler("шиз", shiz_command))
     app.add_handler(CommandHandler("прайм", prime_command))
     app.run_polling()
