@@ -70,10 +70,8 @@ def format_timedelta(td):
 async def map_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     now, current_index, remain, next_change = get_current_rotation()
     text = ""
-    text += f"🗺 Текущая карта:\n"
-    text += f"**{MAPS[current_index]}**\n\n"
-    text += f"⏳ До смены:\n"
-    text += f"{format_timedelta(remain)}\n\n"
+    text += f"🗺 Текущая карта: {MAPS[current_index]}\n"
+    text += f"⏳ До смены: {format_timedelta(remain)}\n\n"
     text += "📅 Дальнейшее расписание:\n"
     change = next_change
     for i in range(1, 7):
@@ -92,15 +90,15 @@ async def map_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def shiz_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     percent = random.randint(0, 100)
     if percent <= 19:
-        emoji = ""      # 0-19
+        emoji = "🥹"      # 0-19
     elif percent <= 39:
-        emoji = ""      # 20-39
+        emoji = "🥸"      # 20-39
     elif percent <= 59:
-        emoji = ""      # 40-59
+        emoji = "👺"      # 40-59
     elif percent <= 79:
-        emoji = ""      # 60-79
+        emoji = "💀"      # 60-79
     else:
-        emoji = ""      # 80-100
+        emoji = "🤡"      # 80-100
 
     await update.message.reply_text(
         f"🧠 Ты шиз на {percent}% {emoji}"
@@ -113,15 +111,15 @@ async def shiz_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def prime_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     percent = random.randint(0, 100)
     if percent <= 19:
-        emoji = ""      # 0-19
+        emoji = "👎"      # 0-19
     elif percent <= 39:
-        emoji = ""      # 20-39
+        emoji = "🤏"      # 20-39
     elif percent <= 59:
-        emoji = ""      # 40-59
+        emoji = "👍"      # 40-59
     elif percent <= 79:
-        emoji = ""      # 60-79
+        emoji = "✊"      # 60-79
     else:
-        emoji = ""      # 80-100
+        emoji = "💪"      # 80-100
 
     await update.message.reply_text(
         f"🔥 Ты в прайме на {percent}% {emoji}"
