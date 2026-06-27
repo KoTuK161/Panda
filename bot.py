@@ -1,6 +1,5 @@
 import os
-from dotenv import load_dotenv
-load_dotenv()
+import random
 TOKEN = os.getenv("TOKEN")
 
 from datetime import datetime, timedelta, timezone
@@ -87,12 +86,56 @@ async def map_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(text)
 
 # ==========================
+# КОМАНДА /шиз
+# ==========================
+
+async def shiz_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    percent = random.randint(0, 100)
+    if percent <= 19:
+        emoji = ""      # 0-19
+    elif percent <= 39:
+        emoji = ""      # 20-39
+    elif percent <= 59:
+        emoji = ""      # 40-59
+    elif percent <= 79:
+        emoji = ""      # 60-79
+    else:
+        emoji = ""      # 80-100
+
+    await update.message.reply_text(
+        f"🧠 Ты шиз на {percent}% {emoji}"
+    )
+
+# ==========================
+# КОМАНДА /прайм
+# ==========================
+
+async def prime_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    percent = random.randint(0, 100)
+    if percent <= 19:
+        emoji = ""      # 0-19
+    elif percent <= 39:
+        emoji = ""      # 20-39
+    elif percent <= 59:
+        emoji = ""      # 40-59
+    elif percent <= 79:
+        emoji = ""      # 60-79
+    else:
+        emoji = ""      # 80-100
+
+    await update.message.reply_text(
+        f"🔥 Ты в прайме на {percent}% {emoji}"
+    )
+    
+# ==========================
 # ЗАПУСК
 # ==========================
 
 def main():
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("карта", map_command))
+    app.add_handler(CommandHandler("шиз", shiz_command))
+    app.add_handler(CommandHandler("прайм", prime_command))
     app.run_polling()
 
 if __name__ == "__main__":
